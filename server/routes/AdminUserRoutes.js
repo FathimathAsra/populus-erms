@@ -47,7 +47,6 @@ AdminRouter.post('/', asyncHandler(async (req, res) => {
             education: user.education,
             mstatus: user.mstatus,
             email: user.email,
-            profilepic: user.profilepic,
             token: generateToken(user._id),
         })
     } else {
@@ -73,7 +72,6 @@ AdminRouter.post('/login', asyncHandler(async (req, res) => {
             education: user.education,
             mstatus: user.mstatus,
             email: user.email,
-            profilepic: user.profilepic,
             token: generateToken(user._id),
         })
     } else {
