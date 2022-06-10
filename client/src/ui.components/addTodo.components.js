@@ -15,7 +15,7 @@ export default class AddTodoComponent extends Component {
     }
 
     refreshPage() {
-        window.location.reload(false);
+        window.location.reload(false); 
     }
 
     onTaskChange(e) {

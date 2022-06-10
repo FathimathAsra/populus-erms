@@ -26,7 +26,6 @@ function SideMenuLogin() {
             </li>
           </ul>
         </div>
-
       </nav>
     </div>
   );

@@ -3,6 +3,7 @@ import download from 'downloadjs';
 import axios from 'axios';
 import { API_URL } from '../routers/FileUploadeHandlerRouterUtil';
 
+
 const FilesList = () => {
     const [filesList, setFilesList] = useState([]);
     const [errorMsg, setErrorMsg] = useState('');
@@ -37,16 +38,30 @@ const FilesList = () => {
         }
     };
 
+    const deleteFile  = async (id) => {
+        try {
+        axios.get(`${API_URL}/delete/${id}`)
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+          })
+        } catch (error) {
+            if (error.response && error.response.status === 400) {
+                console.log(error)
+            }
+        }
+      }
+
 
     return (
-        <div className="row px-5 " style={{height: "auto"}}>
+        <div className="row px-5 " style={{ height: "auto" }}>
             {errorMsg && <p className="errorMsg">{errorMsg}</p>}
             <table className="table table-striped">
                 <thead>
                     <tr>
                         <th className='col'>Title</th>
                         <th className='col'>Description</th>
-                        <th className='col'>Download File</th>
+                        <th className='col'>Options</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,9 +72,8 @@ const FilesList = () => {
                                     <td>{title}</td>
                                     <td>{description}</td>
                                     <td>
-                                        <a href="#/" className="btn btn-inactive-green" type="submit" onClick={() => downloadFile(_id, file_path, file_mimetype)}>Download</a>
-                                        <input className="btn btn-inactive-danger mx-3" type="submit" value="Delete" />
-                                        {/* <input type="submit" value="download btn"  onClick={() => downloadFile(_id, file_path, file_mimetype)}/> */}
+                                        <button href="#/" className="btn btn-inactive-green" type="submit" onClick={() => downloadFile(_id, file_path, file_mimetype)}>Download</button>
+                                        <button className="btn btn-inactive-danger mx-3" type="submit" value="Delete" onClick={() => deleteFile(_id)}>Delete</button>
                                     </td>
                                 </tr>
                             )

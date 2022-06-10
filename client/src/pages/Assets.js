@@ -20,7 +20,6 @@ class AssetsRecords extends Component {
         this.getAssetsList();
     }
 
-    // To get all the assets records
     getAssetsList() {
         axios.get('http://localhost:5000/assets/assets')
             .then((response) => {
@@ -34,7 +33,6 @@ class AssetsRecords extends Component {
             })
     }
 
-    // To delete any salary records
     deleteAsset(assetid) {
         this.assetsService.deleteAsset(assetid);
         this.getAssetsList();

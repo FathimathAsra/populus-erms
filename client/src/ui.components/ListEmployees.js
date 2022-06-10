@@ -20,7 +20,6 @@ class ListEmployees extends Component {
         this.getEmployeeList();
     }
 
-    // To get all the employees
     getEmployeeList() {
         axios.get('http://localhost:5000/employees')
             .then((response) => {
@@ -34,7 +33,6 @@ class ListEmployees extends Component {
             })
     }
 
-    // To delete any employee
     deleteEmployee(empid) {
         this.employeeService.deleteEmployee(empid);
         this.getEmployeeList();
@@ -61,7 +59,6 @@ class ListEmployees extends Component {
                                 <th>Marital Status</th>
                                 <th>Salary</th>
                                 <th></th>
-                                {/* <th></th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -82,9 +79,6 @@ class ListEmployees extends Component {
                                             <td>
                                                 <button onClick={() => this.deleteEmployee(employee._id)} className="btn btn-outline-danger align-middle" style={{ borderRadius: '100px', padding: '0.20em 1em' }} >Delete</button>
                                             </td>
-                                            {/* <td>
-                                                <Link to={"editemployee/" + employee._id} className="btn btn-primary">Edit</Link>
-                                            </td> */}
                                         </tr>
                                     )
                                 })

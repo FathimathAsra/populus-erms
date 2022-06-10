@@ -14,7 +14,7 @@ function TimeWidget() {
                 second: 'numeric',
                 hour12: true,
             })}
-        </div>
+        </div> 
     );
 };
 

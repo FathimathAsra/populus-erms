@@ -4,15 +4,15 @@ import axios from 'axios';
 import { API_URL } from '../routers/FileUploadeHandlerRouterUtil'
 
 const FileUploadForm = (props) => {
-    const [file, setFile] = useState(null); // state for storing actual image
-    const [previewSrc, setPreviewSrc] = useState(''); // state for storing previewImage
+    const [file, setFile] = useState(null);
+    const [previewSrc, setPreviewSrc] = useState('');
     const [state, setState] = useState({
         title: '',
         description: ''
     });
     const [errorMsg, setErrorMsg] = useState('');
-    const [isPreviewAvailable, setIsPreviewAvailable] = useState(false); // state to show preview only for images
-    const dropRef = useRef(); // React ref for managing the hover state of droppable area
+    const [isPreviewAvailable, setIsPreviewAvailable] = useState(false);
+    const dropRef = useRef();
 
     const handleInputChange = (event) => {
         setState({
@@ -128,9 +128,6 @@ const FileUploadForm = (props) => {
                         </Dropzone>
                     </div>
                 </div>
-
-
-
                 <button type="submit" className="btn btn-inactive px-4 ">Add file</button>
             </form>
         </div>

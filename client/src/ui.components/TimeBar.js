@@ -42,7 +42,7 @@ function TimeBar() {
 
             </div>
         </div>
-    );
+    ); 
 
 }
 

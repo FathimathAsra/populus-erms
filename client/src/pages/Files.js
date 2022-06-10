@@ -4,7 +4,7 @@ import FileUploadForm from '../ui.components/FileUploadForm';
 import SideMenu from '../ui.components/SideNav.Menu';
 import TimeBar from '../ui.components/TimeBar';
 
-function Files() {
+function Files() { 
   return (
     <div className="row bgm vh-100 d-flex flex-wrap">
       <SideMenu />

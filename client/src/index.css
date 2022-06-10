@@ -22,13 +22,19 @@ body {
   border-radius: 0.35em;
 }
 
+.nav-link.active:hover {
+  background-color: #1583d8;
+  color: white !important;
+  border-radius: 0.35em;
+}
+
 .plink {
   color: black;
 }
 
 .plink:hover {
   color: #1583d8 !important;
-  font-weight: 800;
+  /* font-weight: 800; */
 }
 
 .plink:active {

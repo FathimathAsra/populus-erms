@@ -1,7 +1,9 @@
 import express from 'express';
 import multer from 'multer';
 import File from '../models/FileUploadModel.js'
-import path from 'path'
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs'
 
 const FileUploadRouter = express.Router();
 
@@ -16,7 +18,7 @@ const upload = multer({
         }
     }),
     limits: {
-        fileSize: 1000000 // max file size 1MB = 1000000 bytes
+        fileSize: 10000000 // max file size 10MB = 10000000 bytes
     },
     fileFilter(req, file, cb) {
         if (!file.originalname.match(/\.(jpeg|jpg|png|pdf|doc|docx|xlsx|xls)$/)) {
@@ -26,7 +28,7 @@ const upload = multer({
                 )
             );
         }
-        cb(undefined, true); // continue with upload
+        cb(undefined, true);
     }
 });
 
@@ -71,28 +73,34 @@ FileUploadRouter.get('/getAllFiles/', async (req, res) => {
 FileUploadRouter.get('/download/:id', async (req, res) => {
     try {
         const file = await File.findById(req.params.id);
+        const __filename = fileURLToPath(import.meta.url);
+        const __dirname = path.dirname(__filename);
         res.set({
             'Content-Type': file.file_mimetype
         });
-        res.sendFile(path.join("http://localhost:5000/routes", file.file_path));
+        res.sendFile(path.join(__dirname, '..', file.file_path));
     } catch (error) {
         res.status(400).send('Error while downloading file. Try again later.');
         console.log(error)
     }
 });
 
-// FileUploadRouter.delete('/delete/:id', async (req, res) => {
-//     try {
-//         const file = await File.findById(req.params.id);
-//         res.set({
-//             'Content-Type': file.file_mimetype
-//         });
-//         res.delete(path.join(__dirname, '..', file.file_path));
-//     } catch (error) {
-//         res.status(400).send('Error while deleting file. Try again later.');
-//     }
-// });
+FileUploadRouter.get("/delete/:id", async (req, res) => {
+    const file = await File.findById(req.params.id);
+    await fs.unlink(file.file_path, (err => {
+        if (err) console.log(err);
+        else {
+            console.log("File Deleted Successfully");
+        }
+    }))
 
- 
+    File.findByIdAndRemove({ _id: req.params.id }, function (err, file) {
+        if (err) res.json(err);
+        else res.json('File Deleted Successfully');
+    });
+
+
+})
+
 
 export default FileUploadRouter;

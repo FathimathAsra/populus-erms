@@ -99,7 +99,7 @@ export default class ViewTodoComponentDashboard extends Component {
 
     refreshPage() {
         window.location.reload(false);
-    }
+    } 
 
     onUpdate = () => {
         axios.put('http://localhost:5000/api/update-todo/' + this.taskObj._id, this.taskObj)

@@ -18,16 +18,11 @@ function SideMenu() {
   }
 
   useEffect(() => {
-    // if (isError) {
-    //   // console.log(message)
-    // }
-
     if (!user) {
       navigate('/login')
     }
 
     return () => {
-      // dispatch(reset())
     }
   }, [user, navigate, dispatch])
 

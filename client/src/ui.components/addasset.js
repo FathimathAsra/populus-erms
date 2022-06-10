@@ -3,9 +3,12 @@ import axios from 'axios';
 import SideMenu from '../ui.components/SideNav.Menu';
 import TimeBar from '../ui.components/TimeBar';
 import { Link } from 'react-router-dom';
+import { createBrowserHistory } from "history"
+const history = createBrowserHistory({forceRefresh:true});
 
 
 class AddAssets extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +19,6 @@ class AddAssets extends Component {
         }
     }
 
-    // When value changes of the fields
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
@@ -25,10 +27,6 @@ class AddAssets extends Component {
         window.location.reload(false);
     }
 
-
-
-
-    // To add new salary record when user submits the form
     handleSubmit = (event) => {
         event.preventDefault();
         const { name, admin, location, value } = this.state;
@@ -41,13 +39,12 @@ class AddAssets extends Component {
         })
             .then((response) => {
                 console.log(response);
-                this.props.history.push('/');
+                history.push('/assets');
+                document.location.reload()
             })
             .catch((error) => {
                 console.log(error);
             });
-
-        this.refreshPage()
     }
 
     render() {

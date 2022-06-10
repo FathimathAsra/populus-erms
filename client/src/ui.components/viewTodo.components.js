@@ -111,9 +111,6 @@ export default class ViewTodoComponent extends Component {
             })
     }
 
-
-
-
     render() {
         const { todos } = this.state;
         return (
@@ -124,21 +121,15 @@ export default class ViewTodoComponent extends Component {
                                 <div className="ms-2 me-auto">
                                     <div className="fw-bold">{data.task}</div>
                                 </div>
-
-
                                 <button className="btn btn-inactive-green" onClick={this.openModal.bind(this, data)}>Update</button>
                                 &nbsp;
                                 &nbsp;
                                 <button className="btn btn-inactive-danger" onClick={this.deleteTodo.bind(this, data._id)}>Delete</button>
                             </li>
-                            
-
                     </ul>
 
                 ))}
 
-
-                {/* Edit */}
                 <Modal isOpen={this.state.modalIsOpen} onRequestClose={this.closeModal} ariaHideApp={false}>
 
                     <div className="container">

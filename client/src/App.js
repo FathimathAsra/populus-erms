@@ -12,7 +12,6 @@ import SalaryRecords from './pages/SalaryRecords.js';
 import AddSalary from './ui.components/addrecord.js';
 import Assets from './pages/Assets.js';
 import AddAssets from './ui.components/addasset.js';
-import Uploadpic from './ui.components/Uploadpic.js';
 
 function App() {
 
@@ -21,7 +20,6 @@ function App() {
     <Router>
       <Routes>
         <Route exact path='/' element={<ProfileDashboard />}></Route>
-        {/* <Route exact path='/editemployee/:id' element={<ProfileSettings />}></Route> */}
         <Route path='/files' element={<Files />}></Route>
         <Route path='/tasks' element={<Work />}></Route>
         <Route path='/employees' element={<Employeesadmin />}></Route>
@@ -33,7 +31,6 @@ function App() {
         <Route path='/addassets' element={<AddAssets />}></Route>
         <Route exact path='/login' element={<AdminLogin />}></Route>
         <Route path='/register' element={<AdminRegister />}></Route>
-        <Route path='/uploadpic' element={<Uploadpic />}></Route>
         
       </Routes>
       

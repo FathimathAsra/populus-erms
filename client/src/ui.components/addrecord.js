@@ -3,6 +3,8 @@ import axios from 'axios';
 import SideMenu from '../ui.components/SideNav.Menu';
 import TimeBar from '../ui.components/TimeBar';
 import { Link } from 'react-router-dom';
+import { createBrowserHistory } from "history"
+const history = createBrowserHistory({forceRefresh:true});
 
 
 class AddSalary extends Component {
@@ -17,7 +19,6 @@ class AddSalary extends Component {
         }
     }
 
-    // When value changes of the fields
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
@@ -26,10 +27,6 @@ class AddSalary extends Component {
         window.location.reload(false);
     }
 
-
-
-
-    // To add new salary record when user submits the form
     handleSubmit = (event) => {
         event.preventDefault();
         const { employee, salary, month, status, remarks } = this.state;
@@ -43,7 +40,8 @@ class AddSalary extends Component {
         })
             .then((response) => {
                 console.log(response);
-                this.props.history.push('/');
+                history.push('/salary/');
+                document.location.reload()
             })
             .catch((error) => {
                 console.log(error);

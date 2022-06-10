@@ -229,25 +229,11 @@ function AdminRegister() {
                                             />
                                         </label>
                                     </div>
-                                    {/* <div className="col-md-4">
-                                        <label className="form-label">Upload Profile Pic
-                                            <input
-                                                type='file'
-                                                className='form-control'
-                                                id='password2'
-                                                name='password2'
-                                                value={password2}
-                                                placeholder='Confirm password'
-                                                onChange={onChange}
-                                            />
-                                        </label>
-                                    </div> */}
                                 </div>
                                 <div className="row">
                                     <div className='container d-flex flex-row-reverse'>
                                         <input
                                             type="submit"
-                                            // value="submit"
                                             className="btn btn-inactive px-4"
                                         />
                                         <div className='container d-flex flex-row-reverse'>

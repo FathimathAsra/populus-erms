@@ -22,7 +22,7 @@ function App() {
               <div className="row px-5">
                 <AddTodoComponent />
                 <ViewTodoComponent />
-              </div>
+              </div> 
             </div>
           </div>
         </div>

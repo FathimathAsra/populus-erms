@@ -3,8 +3,6 @@ const app = express();
 const employeeRoute = express.Router();
 import employeeModel from "../models/EmployeeModel.js"
 
-
-// To Get List Of Employees
 employeeRoute.route('/').get(function (req, res) {
     employeeModel.find(function (err, employee) {
         if (err) {
@@ -16,7 +14,7 @@ employeeRoute.route('/').get(function (req, res) {
     });
 });
 
-// To Add New Employee
+
 employeeRoute.route('/addEmployee').post(function (req, res) {
     let employee = new employeeModel(req.body);
     employee.save()
@@ -30,41 +28,6 @@ employeeRoute.route('/addEmployee').post(function (req, res) {
 
 });
 
-// // To Get Employee Details By Employee ID
-// employeeRoute.route('/editEmployee/:id').get(function (req, res) {
-//     let id = req.params.id;
-//     employeeModel.findById(id, function (err, employee) {
-//         res.json(employee);
-//     });
-// });
-
-// // To Update The Employee Details
-// employeeRoute.route('/updateEmployee/:id').post(function (req, res) {
-//     employeeModel.findById(req.params.id, function (err, employee) {
-//         if (!employee)
-//             return next(new Error('Unable To Find Employee With This Id'));
-//         else {
-//             employee.name = req.body.name;
-//             employee.position = req.body.position;
-//             employee.phoneno = req.body.phoneno;
-//             employee.department = req.body.department;
-//             employee.address = req.body.address;
-//             employee.email = req.body.email;
-//             employee.education = req.body.education;
-//             employee.mstatus = req.body.mstatus;
-//             employee.salary = req.body.salary;
-
-//             employee.save().then(emp => {
-//                 res.json('Employee Updated Successfully');
-//             })
-//                 .catch(err => {
-//                     res.status(400).send("Unable To Update Employee");
-//                 });
-//         }
-//     });
-// });
-
-// To Delete The Employee
 employeeRoute.route('/deleteEmployee/:id').get(function (req, res) {
     employeeModel.findByIdAndRemove({ _id: req.params.id }, function (err, employee) {
         if (err) res.json(err);

@@ -20,7 +20,6 @@ class SalaryRecords extends Component {
         this.getSalaryList();
     }
 
-    // To get all the salary records
     getSalaryList() {
         axios.get('http://localhost:5000/salary/salary')
             .then((response) => {
@@ -34,7 +33,6 @@ class SalaryRecords extends Component {
             })
     }
 
-    // To delete any salary records
     deleteSalary(salaryid) {
         this.salaryService.deleteSalary(salaryid);
         this.getSalaryList();

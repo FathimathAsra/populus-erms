@@ -10,7 +10,7 @@ class AssetsService {
             })
             .catch((error) => {
                 console.log(error)
-            })
+            }) 
     }
 }
 

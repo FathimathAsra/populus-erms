@@ -2,13 +2,11 @@ import SideMenu from '../ui.components/SideNav.Menu';
 import TimeBar from '../ui.components/TimeBar';
 import React from 'react';
 import { useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom';
-// import axios from 'axios'
 
 
-function ProfileSettings() {
-
+const ProfileSettings = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
+ 
 
   return (
     <div className="row bgm vh-100" >
@@ -30,16 +28,10 @@ function ProfileSettings() {
                 <div className="col-md-4">
                   <div className="row pt-5 text-center">
                     <div  >
-                      <img src={currentUser.profilepic || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'} id="file"  alt="profile pic" className='r-circle-profile'/>
-                      {/* <img src={} id="file"  alt="profile pic" className='r-circle-profile'/> */}
+                      <img src={currentUser.profilepic || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'} id="file" alt="profile pic" className='r-circle-profile' />
                     </div>
                   </div>
-                  <div className="row pt-5 text-center">
-                    <NavLink to="/Uploadpic">
-                      <button type="button" className="btn btn-inactive px-4 ">Change Image</button>
-                    </NavLink>
-                  </div>
-                  <div className="row pt-2">
+                  <div className="row pt-4">
                     <div className="text-center">
                       <p className="poppinh3" style={{ color: 'black' }}>{currentUser.adminname}</p>
                     </div>
