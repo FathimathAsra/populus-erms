@@ -31,11 +31,6 @@ let AdminUser = new Schema({
     password: {
         type: String,
     },
-    profilepic: {
-        type: String, 
-    },
-
-
 }, {
     collection: 'adminuser'
 })

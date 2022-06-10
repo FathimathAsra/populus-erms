@@ -28,7 +28,7 @@ const ProfileSettings = () => {
                 <div className="col-md-4">
                   <div className="row pt-5 text-center">
                     <div  >
-                      <img src={currentUser.profilepic || 'https://res.cloudinary.com/fatimaash/image/upload/v1654839597/g7mg42t433q8eq8dbu7u.png'} id="file" alt="profile pic" className='r-circle-profile' />
+                      <img src={'https://res.cloudinary.com/fatimaash/image/upload/v1654839597/g7mg42t433q8eq8dbu7u.png'} id="file" alt="profile pic" className='r-circle-profile' />
                     </div>
                   </div>
                   <div className="row pt-4">
