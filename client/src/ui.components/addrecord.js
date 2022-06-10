@@ -46,8 +46,6 @@ class AddSalary extends Component {
             .catch((error) => {
                 console.log(error);
             });
-
-        this.refreshPage()
     }
 
     render() {

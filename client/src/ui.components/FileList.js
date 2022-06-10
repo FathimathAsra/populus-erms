@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import download from 'downloadjs';
 import axios from 'axios';
 import { API_URL } from '../routers/FileUploadeHandlerRouterUtil';
+import { createBrowserHistory } from "history"
+const history = createBrowserHistory({forceRefresh:true});
 
 
 const FilesList = () => {
@@ -44,6 +46,8 @@ const FilesList = () => {
           .then(res => {
             console.log(res);
             console.log(res.data);
+            history.push('/files');
+            document.location.reload()
           })
         } catch (error) {
             if (error.response && error.response.status === 400) {

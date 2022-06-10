@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import { API_URL } from '../routers/FileUploadeHandlerRouterUtil'
+import { createBrowserHistory } from "history"
+const history = createBrowserHistory({forceRefresh:true});
 
 const FileUploadForm = (props) => {
     const [file, setFile] = useState(null);
@@ -61,6 +63,9 @@ const FileUploadForm = (props) => {
                             'Content-Type': 'multipart/form-data'
                         }
                     });
+
+                    history.push('/files');
+                    document.location.reload()
                 } else {
                     setErrorMsg('Please select a file to add.');
                 }

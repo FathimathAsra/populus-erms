@@ -40,7 +40,7 @@ function SideMenu() {
           
           <img
           // eslint-disable-next-line 
-            src={user && user.profilepic || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'}
+            src={user && user.profilepic || 'https://res.cloudinary.com/fatimaash/image/upload/v1654839597/g7mg42t433q8eq8dbu7u.png'}
             alt="profile"
             className="img-fluid img-thumbnail r-circle mx-auto mb-3"
           />
